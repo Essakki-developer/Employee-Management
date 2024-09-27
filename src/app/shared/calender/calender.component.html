@@ -5,16 +5,18 @@
     <p>{{ selectedDate | date: 'dd MMM yyyy' }}</p>
 </div>
 <div class="actions">
-    <button mat-button (click)="selectToday()"
+    <button type="button" mat-button (click)="selectToday()"
         style="color: white; background-color:#1da1f2 ; width: 50%;">Today</button>
-    <button mat-button (click)="endDate ? selectLastDayOFCurrentMonth(): selectNextMonday()"
+    <button type="button" mat-button (click)="endDate ? selectLastDayOFCurrentMonth(): selectNextMonday()"
         style="color: white; background-color:#1da1f2; width: 50%;">
         {{endDate ? 'No Date' : 'Next Monday'}}
     </button>
 </div>
 <div class="actions" *ngIf="!endDate">
-    <button mat-button (click)="selectNextTuesday()" style="color: white; background-color:#1da1f2; width: 50%;">Next
+    <button type="button" mat-button (click)="selectNextTuesday()"
+        style="color: white; background-color:#1da1f2; width: 50%;">Next
         Tuesday</button>
-    <button mat-button (click)="selectAfterOneWeek()" style="color: white; background-color:#1da1f2; width: 50%;">After
+    <button type="button" mat-button (click)="selectAfterOneWeek()"
+        style="color: white; background-color:#1da1f2; width: 50%;">After
         1 week</button>
 </div>

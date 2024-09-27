@@ -44,9 +44,8 @@
                         style="position: relative; top: -30px;"></app-calender>
                 </div>
                 <div style="width: 100%;">
-                    <mat-form-field appearance="outline" style="width: 100%;">
-                        <input matInput (click)="openEndPicker()" placeholder="Select  end date"
-                            formControlName="endDate" readonly>
+                    <mat-form-field appearance="outline" style="width: 100%;" (click)="openEndPicker()">
+                        <input matInput placeholder="Select  end date" formControlName="endDate" readonly>
                         <mat-datepicker-toggle matPrefix></mat-datepicker-toggle>
                     </mat-form-field>
                     <app-calender *ngIf="startDateValue"
@@ -55,7 +54,6 @@
                         (endDateOutput)="endDateCall($event)"></app-calender>
                 </div>
             </div>
-
         </form>
     </mat-card>
 </div>
