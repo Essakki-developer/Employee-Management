@@ -1,0 +1,17 @@
+.actions {
+    display: flex;
+    padding: 10px;
+    width: 75%;
+    gap: 5px;
+}
+
+::ng-deep .mat-calendar-body-selected {
+    background-color: #1DA1F2 !important;
+    color: white !important;
+    /* Change text color to contrast */
+}
+
+::ng-deep .mat-calendar-body-today {
+    border-color: #1DA1F2 !important;
+
+}

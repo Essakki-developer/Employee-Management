@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
+// html,
+// body {
+//     height: 100%;
+// }
+
+// body {
+//     margin: 0;
+//     font-family: Roboto, "Helvetica Neue", sans-serif;
+// }
+
+// @import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+// :root {
+//     --primary-background-color: #1DA1F2 !important;
+//     --primary-button-text-color: white !important;
+// }
+.button-style {
+    background-color: #1DA1F2 !important;
+    color: white !important;
+}

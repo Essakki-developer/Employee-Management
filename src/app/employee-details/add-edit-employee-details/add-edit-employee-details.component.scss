@@ -1,0 +1,85 @@
+.employee-form-container {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 70%;
+}
+
+@media (max-width: 600px) {
+    .employee-form-container {
+        width: 100%;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.border-class {
+    border: 5px black !important;
+}
+
+.date-fields {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+@media (max-width: 600px) {
+    .date-fields {
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+
+}
+
+::ng-deep .snackbar-success {
+    --mdc-snackbar-container-color: #1DA1F2 !important;
+    color: white;
+}
+
+.submit-btn {
+    background-color: #1DA1F2 !important;
+    color: white !important;
+}
+
+.mat-icon {
+    color: #1DA1F2;
+}
+
+.cancel-btn {
+    background-color: #f1f1f1 !important;
+    color: #1DA1F2 !important;
+}
+
+.hidden-content {
+    visibility: hidden;
+}
+
+.visible-content {
+    visibility: visible;
+}
+
+@media (max-width: 768px) {
+    .visible-content {
+        display: block;
+    }
+
+    .hidden-content {
+
+        display: none;
+
+    }
+}
+
+mat-datepicker-toggle {
+    color: #1DA1F2 !important;
+}

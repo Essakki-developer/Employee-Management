@@ -1,0 +1,64 @@
+<div style="width:100%;overflow:hidden;">
+    <app-top-nav [title]="pageTitle"></app-top-nav>
+
+    <button class="web-button" mat-raised-button (click)="addEmployee()">Add Employee</button>
+    <button class="mobile-icon" mat-icon-button (click)="addEmployee()">
+        <mat-icon>add_box</mat-icon>
+    </button>
+    <div *ngIf="currentEmployees?.length">
+        <div class="card-style">
+            <h2>Current Employees</h2>
+        </div><br><br>
+        <div class="card-class">
+
+            <ng-container *ngFor="let employee of currentEmployees">
+                <mat-card class="employee-card">
+                    <mat-card-header class="card-header">
+                        <mat-card-title>{{ employee.name }}</mat-card-title>
+                        <div class="icons">
+                            <mat-icon style="color: #1DA1F2;" matTooltip="Edit"
+                                (click)="onEdit(employee)">edit</mat-icon>
+                            <mat-icon style="color: red;" matTooltip="Delete"
+                                (click)="onDelete(employee)">delete</mat-icon>
+                        </div>
+                    </mat-card-header><br>
+                    <mat-card-content>
+                        <p>{{ employee.role }}</p>
+                        <p>From: {{ employee.startDate | date }}</p>
+                    </mat-card-content>
+                </mat-card>
+            </ng-container>
+        </div>
+    </div>
+    <br>
+    <div *ngIf="previousEmployees?.length">
+        <div class="card-style">
+            <h2>Previous Employees</h2>
+        </div><br><br>
+        <div class="card-class">
+            <ng-container *ngFor="let employee of previousEmployees">
+                <mat-card class="employee-card">
+                    <mat-card-header class="card-header">
+                        <mat-card-title>{{ employee.name }}</mat-card-title>
+                        <div class="icons">
+                            <mat-icon style="color: #1DA1F2;" matTooltip="Edit"
+                                (click)="onEdit(employee)">edit</mat-icon>
+                            <mat-icon style="color: red;" matTooltip="Delete"
+                                (click)="onDelete(employee)">delete</mat-icon>
+                        </div>
+                    </mat-card-header><br>
+                    <mat-card-content>
+                        <p>{{ employee.role }}</p>
+                        <p> {{ employee.startDate | date }} -
+                            {{ employee.endDate | date }}</p>
+                    </mat-card-content>
+                </mat-card>
+            </ng-container>
+        </div>
+    </div>
+    <br><br>
+    <div *ngIf="!previousEmployees?.length && !currentEmployees?.length" class="no-records">
+        <img src="./assets/hand-drawn-no-data-illustration_23-2150696458.avif" />
+        <p>No Employee Records Found</p>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<app-top-nav [title]="pageTitle"></app-top-nav>
+<div style="display: flex; align-items: center; justify-content: center;">
+    <mat-card class="employee-form-container mat-elevation-z8">
+        <!-- Buttons to save and cancel Employee Details-->
+        <div class="button-container">
+            <button mat-stroked-button class="cancel-btn" (click)="onCancel()">Cancel</button>
+            <button mat-raised-button class="submit-btn" (click)="onSubmit()"
+                [disabled]="!employeeForm.valid">Save</button>
+
+        </div>
+        <br>
+        <!-- Form to store employee details-->
+        <form *ngIf="employeeForm" [formGroup]="employeeForm">
+            <!-- Employee Name -->
+            <mat-form-field appearance="outline" class="border-class">
+                <mat-icon matPrefix>person</mat-icon>
+                <input type="text" matInput placeholder="Employee name" formControlName="name" required />
+                <mat-error *ngIf="employeeForm?.get('name')?.hasError('required')">This field is required</mat-error>
+                <mat-error *ngIf="employeeForm?.get('name')?.hasError('maxlength')">Employee Name should not exceed 40
+                    characters.</mat-error>
+            </mat-form-field>
+
+            <!-- Employee Role -->
+            <mat-form-field appearance="outline">
+                <mat-icon matPrefix>business</mat-icon>
+                <mat-select placeholder="Select role" formControlName="role" required>
+                    <mat-option *ngFor="let role of roles" [value]="role">{{ role }}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="employeeForm?.get('role')?.hasError('required')">This field is required</mat-error>
+            </mat-form-field>
+
+            <!-- Datepickers for Joining and End Dates -->
+            <div class="date-fields">
+                <div style="width: 100%;">
+                    <mat-form-field appearance="outline" style="width: 100%;" (click)="openDatePicker()">
+                        <input matInput placeholder="Select  start date" readonly formControlName="startDate">
+                        <mat-datepicker-toggle matPrefix></mat-datepicker-toggle>
+                        <mat-error *ngIf="employeeForm?.get('startDate')?.hasError('required')">This field is
+                            required</mat-error>
+                    </mat-form-field>
+                    <app-calender *ngIf="startDateValue" [startDate]="true" (startDateOutput)="startDateCall($event)"
+                        [activeDate]="startDateValue"
+                        [ngClass]="{'hidden-content': !startCalender, 'visible-content': startCalender}"
+                        style="position: relative; top: -30px;"></app-calender>
+                </div>
+                <div style="width: 100%;">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <input matInput (click)="openEndPicker()" placeholder="Select  end date"
+                            formControlName="endDate" readonly>
+                        <mat-datepicker-toggle matPrefix></mat-datepicker-toggle>
+                    </mat-form-field>
+                    <app-calender *ngIf="startDateValue"
+                        [ngClass]="{'hidden-content': !endCalender, 'visible-content': endCalender}"
+                        style="position: relative; top: -30px;" [endDate]="true" [activeEndDate]="endDateValue"
+                        (endDateOutput)="endDateCall($event)"></app-calender>
+                </div>
+            </div>
+
+        </form>
+    </mat-card>
+</div>
